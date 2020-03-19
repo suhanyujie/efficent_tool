@@ -16,3 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix' => 'search', 'middleware' => [] ], function () {
+    // 获取 token
+    Route::any('/getToken', 'Tool\SearchController@getToken');
+    Route::get('/getList', 'Tool\SearchController@getList');
+
+    Route::any('/addData', 'Tool\SearchController@addData');
+});
+

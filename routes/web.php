@@ -16,13 +16,6 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'tool', 'middleware' => [] ], function () {
+    // todo
     Route::get('/imageUpload', 'FileController@imgStore');
-});
-
-Route::group(['prefix' => 'search', 'middleware' => [] ], function () {
-    // 获取 token
-    Route::any('/getToken', 'Tool\SearchController@getToken');
-    Route::get('/getList', 'Tool\SearchController@getList');
-
-    Route::any('/addData', 'Tool\SearchController@addData');
 });
